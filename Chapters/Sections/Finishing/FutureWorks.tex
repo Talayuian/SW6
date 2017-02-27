@@ -1,0 +1,55 @@
+\Section{Future Works}
+Here potential improvements to the system will be briefly discussed.
+This will include the reasons why some things were not included.
+
+\Subsection{Memory Module}
+A way to further optimise the system, could be for it to deliver the bricks in a more optimal order. 
+This necessitates some form of physical memory.
+
+To properly use physical memory, the system has to recalculate the optimal order each time a new brick enters the system, since the system does not know which bricks enter the system.
+The basis for the memory system had already been programmed; however, due to memory limitations along with a lack of physical resources, it was discarded. 
+
+To get a more optimal system, taking the speed of the other system into consideration is necessary, to ensure proper coordination between systems.
+For instance, if the system was coupled with a 3D assembler which would take $n$ seconds per brick, then the system could prioritise saving a brick in the memory rather than delivering it instantly.
+This however, would also require the system to know the speed at which the system funnels bricks into the other system.
+
+The system could also instead try to detect if any entrances are blocked, and then calculate the time the other system takes per brick.
+This could be done by some measure of machine learning, due to how the time spent per brick can wary depending on the actions required by the other system.
+For instance, by calculating the average time spend per brick, the system could create a simple tree, with each node describing one possible solution, and then select an optimal solution from those.
+Based on the assumption on the amount of bricks, it is doubtful if it will need any of the more advanced techniques.
+These solutions would seem to be possible on something akin to a \textbf{Raspberry Pi}, although it does depend on the usage. 
+
+\Subsection{Special Bricks}
+Currently the system is only capable of handling rectangular bricks.
+This excludes not only bricks with special shapes---triangular, rounded corners etc.---but also the extra short ones and the ones with holes in them.
+This is due to how the length of the bricks is measured, as it only measures the bricks from a single angle.
+The potential solutions mentioned here will only include those which would not require to big of a sensor exchange, like instead using a camera sensor.
+
+The simplest way to solve this, would be to use several infrared receivers at different heights.
+If the different receivers then interrupt at different times, it should be able to calculate angles.
+While this would be a simple upgrade software-wise, it is not something which the prototype would support.
+It would still have a problem handling bricks with holes.
+
+Another potential fix would be to use photo-interruptors set under and above the conveyor. 
+Coupled with the original sensors, this would allow it to handle both the completely flat bricks along with the bricks with holes.
+Coupled with the system mentioned above, it would handle the majority of bricks.
+This would however, require more modification to the building materials than the previous suggestion.
+These modifications would include changing the conveyor belt-material to something which the infrared signals can pass through.
+
+\Subsection{Modular Sensor System}
+Another design considered---that was due to memory constraints---was the notion of having a modular sensor-system.
+This would allow the system to be easily extensible, allowing more sensors to be added to the conveyor belt in any order, and still have the system-code perform as intended, as opposed to the order of sensors being static. % butt butt butt butt butt butt butt...
+Unfortunately, this level of extensibility is very memory intensive compared to the small footprint the \textbf{Arduino Mega 2560} provides.
+
+%mulig tilføjelse, da vi ikke nævner det her
+One change that would have to be made to accommodate modular sensors, would be to use a queue---or similar data-structure---to contain the incomplete bricks as they move throughout the system.
+Adding this feature would allow the system to add data from sensors to several different bricks, as opposed to only a one brick at a time.
+
+\Subsection{File Handling}
+A thing that was considered, was a way of getting the prototype to read a blueprint from an external source file.
+The \textbf{Arduino} would read this file via an SD card reader; as a typical Arduino does not have a way to handle files.
+This could either be done by using an external SD card reader, or using an \textbf{Arduino} with one built into the board.
+The SD card would contain a specially formatted text file, which aims to describe various aspects of the bricks required by the blueprint.
+This file should be read in chunks through a file stream to minimise the memory load on the \textbf{Arduino}; then assemble these chunks into a complete blueprint.
+
+%TAND

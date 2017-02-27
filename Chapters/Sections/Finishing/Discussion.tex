@@ -1,0 +1,58 @@
+\Section{Discussion}
+%In this section, Daniel decided to commit suicide, however, Anders and Nikolaj voted against this. This was concidered a bad idea by the general public and we were hanged on his steed... -T
+In this section, potential future concerns for the system will be discussed.
+Reasons for those concerns will also be addressed.
+
+\Subsection{Scalability}
+In order to accommodate scalability concerns for the prototype, the product would have to be larger. 
+Currently the product is capable of sorting \textbf{LEGO}-bricks, but ideally the product would be capable of sorting anything with different colour and/or size parameters.
+When the group tried to accommodate handling larger scaled items in the software, due to memory constraints; choices were made regarding how the size of an object was to be measured, that would not be obstructed by the sorting items not being \textbf{LEGO}-bricks, but other building materials for industrial purposes.
+%When the group tried to accommodate handling larger scaled items---in the software---choices were made regarding how the size of an object should be measured. %i wonder when NICOLAI will notice this.
+%Such that product would not be obstructed by sorting other objects than LEGO-bricks like building materials for industrial purposes. 
+
+This also applies to how an object's colour is determined.
+The way the system is currently implemented, readings could be thrown off if a measured object has holes.
+This could possibly be remedied by scanning the brick at a different angle. % :3c
+
+\Subsection{Prototype Issues}
+The prototype is incapable of handling bricks above a length of eight \textbf{LEGO} studs, as the bricks are almost guaranteed to get stuck.
+A way to remedy this, is to increase the space between the pusher mechanism and the colour sensor to remove the limited space as a factor in the obstruction of items.
+This solution has not been tested due to the limited resources at hand, but theoretically the increase in distance between the colour sensor and the pusher should give the same end-result as with the shorter bricks.
+%A larger prototype would also have a larger distance for bricks to travel, which with the current limitation of one brick at a time would make the belt slower.
+This was also seen as an inconsequential issue, due to the nature of the prototypes.
+
+The prototype had an inconsistent speed, often changing a couple of times in the span of a minute.
+This meant that the delays in the software had a high error margin, this proved to be a problem for the colour sensor.
+When it tried to calculate the moment it should register a colour, it would be inaccurate meaning that the colour sensor would at times miss smaller bricks.
+
+During the construction, the results from the colour sensor varied, to a point where it made false readings.
+After several iterations this was found to caused by the hardware, as opposed to a software problem. 
+
+\Subsection{Prototype Construction} 
+The prototype was made primarily to showcase features of the software.
+Therefore, some shortcuts were made concerning the construction, most of which concern size.
+The prototype is more compact than the hypothetical final construction, as it made testing and modifications easier.
+Delays between the sensors have to be changed, as they most likely differ in the final system.
+This is not seen as a major problem, due to the assumption that the sizes of the final system will be known.
+The material will also have to change in the final product, as \textbf{LEGO} is quite expensive compared to traditional building materials.
+
+Another difference is the way the circuitry is connected.
+In the prototype, some of the sensors are not connected in a safe manner.
+This primarily concerns the size sensor, but is not exclusive to it.
+The same goes for some of the circuitry, as important parts---including the \ac{CPU}---is set loosely next to the system.
+These are however hardware concerns, which does not entail our chosen concern of the software.
+
+\Subsection{Criteria and Tests} %
+%%Sorting size / test ** 
+Through the tests in \ref{sec:Size Sensor} the measured length of different bricks can be seen in a graph, and the sorting for this is handled by comparing the blueprint with the size and the colour, before calling the pusher to accept the brick.
+
+%%Sorting of colour / test **
+The data returned by the colour sensor is lower than expected; however, the readings are still different enough for each brick to be distinguished.
+Although black bricks cause problems, due to their colour being so close to the colour of the belt. 
+
+%%Conveyor belt / test **
+%A functional conveyor belt capable of transporting at least ten objects---through the sensor area---per minute, without any objects falling off, turning over, or providing inaccurate information for the sensors.
+
+%Comment area
+
+%_A_D
